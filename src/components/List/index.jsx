@@ -117,6 +117,14 @@ export default class List extends Component {
               onAddListItem={this.handleAddListItem}
             />
           </div>
+          <select name="xyz" id="xyz">
+            {list.map(listItem => (
+              <option key={listItem._id}>
+                {listItem.text}
+              </option>
+            ))}
+          </select>
+
           {list.map(listItem => (
             <ListItem
               key={listItem._id}
@@ -124,6 +132,7 @@ export default class List extends Component {
               onDeleteListItem={this.handleDeleteListItem}
             />
           ))}
+
           <WarningMessage
             open={WarningMessageOpen}
             text={WarningMessageText}

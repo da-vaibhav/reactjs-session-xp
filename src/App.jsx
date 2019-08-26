@@ -1,6 +1,6 @@
 ﻿import React, { Component } from "react";
 import "./App.css";
-import FunctionChild  from "./fn-child";
+import List  from "./components/List";
 
 class App extends Component {
   state = {
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <FunctionChild />
+        <List />
         <hr/>
       </div>
     );
