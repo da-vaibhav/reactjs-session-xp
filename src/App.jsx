@@ -1,25 +1,34 @@
 ﻿import React, { Component } from "react";
 import "./App.css";
 import FunctionChild  from "./fn-child";
-import ClassChild from "./class-child";
-import ChildrenProps from "./children-props";
 
 class App extends Component {
+  state = {
+    childCount: 3,
+    randomNum: Math.random(),
+  };
+
   render() {
+    const { childCount, randomNum } = this.state;
     return (
       <div>
-        <FunctionChild functionName="child function"/>
+        <span>we are rendering {childCount} child components</span>
+        <FunctionChild num={randomNum} />
         <hr/>
-        <ClassChild name="class component"/>
-        <hr/>
-        <ClassChild color="khaki" name="another class component" />
-        <hr/>
-        <ChildrenProps>
-          <b>this one</b>
-        </ChildrenProps>
 
+         {(childCount < 3) ? "Less than 3" : "sufficient count" }
+
+        <hr/>
+        <button onClick={this.updateRandomNum}>update random number</button>
+        <hr/>
       </div>
     );
+  }
+
+  updateRandomNum = () => {
+    this.setState({randomNum: Math.random()}, () => {
+      console.log('random number updated!');
+    });
   }
 }
 
