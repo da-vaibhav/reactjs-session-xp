@@ -1,26 +1,18 @@
-﻿import React, { Component } from "react";
+﻿import React, { useState } from "react";
 import "./App.css";
-import MasterDetail  from "./components/Master_Detail";
-import CountContext from "./countContext.js";
 
-class App extends Component {
-  state = {
-    count: 0
-  };
+function App (){
+  const [count, setCount] = useState(0);
 
-  render() {
     return (
       <div>
-        <CountContext.Provider value={{count: this.state.count, incrementCount: this.incrementCount}}>
-          <MasterDetail />
-        </CountContext.Provider>
+        count is {count}
+        <hr/>
+        <button onClick={(e) => {
+          setCount(count + 4);
+        }}>increment</button>
       </div>
     );
-  }
-
-  incrementCount = () => {
-    this.setState({ count: this.state.count + 1});
-  }
 }
 
 export default App;
