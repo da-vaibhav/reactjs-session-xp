@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import classnames from "classnames";
 import styles from "./masterdetail.module.css";
+import CountContext from "../../countContext";
 
 export default function MasterDetailPage(props) {
   const {
@@ -34,6 +35,16 @@ export default function MasterDetailPage(props) {
           </nav>
         </div>
         <div className="col-md-8 col-12 ml-3 mb-5">
+        <CountContext.Consumer>
+          {({count, incrementCount}) => {
+            return (
+              <div>
+                <h4>{count}</h4>
+                <button onClick={incrementCount}>Update context from deep child</button>
+              </div>
+            )
+          }}
+        </CountContext.Consumer>
           <p className={styles.title}>Status</p>
           <p>{status}</p>
           <p className={styles.title}>Order Date</p>
