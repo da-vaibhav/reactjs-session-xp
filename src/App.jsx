@@ -12,7 +12,7 @@ class App extends Component {
         <hr/>
         <ClassChild name="class component"/>
         <hr/>
-        <ClassChild name="and another class component"/>
+        <ClassChild color="khaki" name="another class component" />
         <hr/>
         <ChildrenProps>
           <b>this one</b>
