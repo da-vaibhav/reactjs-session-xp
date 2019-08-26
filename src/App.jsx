@@ -15,6 +15,7 @@ class App extends Component {
         <span>we are rendering {childCount} child components</span>
         <FunctionChild num={randomNum} />
         <hr/>
+        <FunctionChild clickEvent={this.updateRandomNum}/>
 
          {(childCount < 3) ? "Less than 3" : "sufficient count" }
 
